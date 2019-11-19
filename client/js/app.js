@@ -1319,7 +1319,7 @@ function moveRobotToPose(movePose) {
 
 	goal.on('result', function (result) {
 		console.log('Move to pose result: ' + JSON.stringify(result));
-		sendMarker(feedback);
+		sendMarker(result);
 	});
 
 	goal.on('feedback', function (feedback) {
