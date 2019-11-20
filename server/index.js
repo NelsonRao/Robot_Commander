@@ -10,9 +10,10 @@ var topicName = '/cmd_vel';
 var speedFactor = 1.0;								// multiplies or divides speed to go faster or slower
 var stopMotion = true;
 var repeatInterval = 20;
-var curWaypoint='A';
+var curWaypoint = 'A';
 
-
+// const Gpio = require('pigpio').Gpio;
+// const motor1 = new Gpio(0, { mode: Gpio.OUTPUT });
 
 
 
@@ -280,13 +281,12 @@ app.get('/nextwaypoint', urlencodedParser, function (req, res) {
     // console.log(req.query.wp);
     if (curWaypoint == 'A') {
         console.log('Go to waypoint B');
-        curWaypoint='B';
+        curWaypoint = 'B';
         goToWaypoint('B');
     }
-    else
-    {
+    else {
         console.log('Go to waypoint A');
-        curWaypoint='A';
+        curWaypoint = 'A';
         goToWaypoint('A');
     }
     res.send('ok');
