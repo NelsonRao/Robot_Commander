@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var ROSLIB = require('roslib');
-// var ROSLIB=require('./public/scripts/roslib.js')
 
 var ros;						// this will be the connection to ROS
 var connected = false;
@@ -12,10 +11,13 @@ var stopMotion = true;
 var repeatInterval = 20;
 var curWaypoint = 'A';
 
-// const Gpio = require('pigpio').Gpio;
-// const motor1 = new Gpio(0, { mode: Gpio.OUTPUT });
-
-
+const Gpio = require('pigpio').Gpio;
+const motor1 = new Gpio(4, { mode: Gpio.OUTPUT });
+const motor2 = new Gpio(17, { mode: Gpio.OUTPUT });
+const motor3 = new Gpio(18, { mode: Gpio.OUTPUT });
+//const motor1 = new Gpio(0, { mode: Gpio.OUTPUT });
+//let pulseWidth =700;
+//let increment=100;
 
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -293,10 +295,92 @@ app.get('/nextwaypoint', urlencodedParser, function (req, res) {
 
 })
 
+app.get('/d',urlencodedParser, function(req,res){
+motor1.servoWrite(1700);
+setTimeout(()=>{
+motor1.servoWrite(700);
+
+if(curWaypoint == 'A'){
+console.log('Go to waypoint B');
+curWaypoint='B';
+goToWaypoint('B');
+}
+else{
+console.log('Go to waypoint A');
+curWaypoint='A';
+goToWaypoint('A');
+}
+
+},5000)
+
+})
+
+
+app.get('/w',urlencodedParser, function(req,res){
+motor2.servoWrite(1700);
+setTimeout(()=>{
+motor2.servoWrite(700);
+
+if(curWaypoint == 'A'){
+console.log('Go to waypoint B');
+curWaypoint='B';
+goToWaypoint('B');
+}
+else{
+console.log('Go to waypoint A');
+curWaypoint='A';
+goToWaypoint('A');
+}
+
+},5000)
+
+})
+
+app.get('/r',urlencodedParser, function(req,res){
+motor3.servoWrite(1700);
+setTimeout(()=>{
+motor3.servoWrite(700);
+
+if(curWaypoint == 'A'){
+console.log('Go to waypoint B');
+curWaypoint='B';
+goToWaypoint('B');
+}
+else{
+console.log('Go to waypoint A');
+curWaypoint='A';
+goToWaypoint('A');
+}
+
+},5000)
+
+})
 
 var server = app.listen(8081, function () {
     var host = server.address().address
     var port = server.address().port
+
+/*setInterval(()=>{
+console.log("interval runing");
+motor1.servoWrite(pulseWidth);
+*/
+/*pulseWidth += increment;
+
+if(pulseWidth>=2000)
+{
+increment=-100;
+}
+else if (pulseWidth<=700){
+increment=100;
+}
+*/
+/*if(pulseWidth==700)
+pulseWidth=1700;
+else if(pulseWidth==1700)
+pulseWidth=700;
+
+},3000)
+*/
 
     console.log("Example app listening at http://%s:%s", host, port)
 })
