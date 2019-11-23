@@ -296,6 +296,7 @@ app.get('/nextwaypoint', urlencodedParser, function (req, res) {
 })
 
 app.get('/d',urlencodedParser, function(req,res){
+res.send('ok');
 motor1.servoWrite(1700);
 setTimeout(()=>{
 motor1.servoWrite(700);
@@ -317,6 +318,7 @@ goToWaypoint('A');
 
 
 app.get('/w',urlencodedParser, function(req,res){
+res.send('ok');
 motor2.servoWrite(1700);
 setTimeout(()=>{
 motor2.servoWrite(700);
@@ -337,6 +339,7 @@ goToWaypoint('A');
 })
 
 app.get('/r',urlencodedParser, function(req,res){
+res.send('ok');
 motor3.servoWrite(1700);
 setTimeout(()=>{
 motor3.servoWrite(700);

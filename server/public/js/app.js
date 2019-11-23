@@ -13,6 +13,7 @@ myNamespace.round = function (number, precision) {
 	return roundedTempNumber / factor;
 };
 var curWaypoint = 'A';
+var photoURL='http://bbb.local:8081/d';
 var connected = false;
 var recognizing = false;
 //    var recognition;
@@ -1159,6 +1160,7 @@ function listWaypoints() {
 }
 
 function goToWaypoint(waypointName) {
+	addLog("Go to waypoint "+waypointName);
 	curWaypoint = waypointName;
 	var waypointPose;
 	if (connected) {
@@ -1199,6 +1201,7 @@ function goToNextWaypoint() {
 		goToWaypoint('A');
 		curWaypoint = 'A';
 	}
+	addLog("Go to next waypoint "+curWaypoint);
 }
 
 function setWaypoint(waypointName) {
@@ -1217,8 +1220,21 @@ function setWaypoint(waypointName) {
 		};
 		// console.log ("getting the current pose");
 		getPose(setWaypointParam);
+		addLog("Set Waypoint "+waypointName);
 	}
 }
+
+
+function takePhoto(){
+	addLog('Take photo');
+	var request=new XMLHttpRequest();
+	request.onreadystatechange = function(){
+	}	      
+  	request.open("GET", photoURL,true);
+	request.send(null);
+
+}
+
 
 function SetWaypointZero(waypointName) {
 	// ----------------------------------------------------------------------

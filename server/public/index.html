@@ -177,31 +177,42 @@
 		</div>
 
 
-		<div class="row top-pad">
-			<div class="col-xs-8" style="text-align:center">
 				<div class="row top-pad">
-					<div class="col-xs-6" style="text-align:center">
+					<div class="col-xs-4" style="text-align:center">
 						<span class="fa fa-map-marker fa-4x toggle gbutton" id="arrowDown" onclick="setWaypoint('A')"
 							data-toggle="tooltip" data-placement="left" title="Set waypoint A">
 						</span>
 					</div>
-					<div class="col-xs-6" style="text-align:center">
+					<div class="col-xs-4" style="text-align:center">
 						<span class="fa fa-truck fa-4x toggle gbutton" onclick="goToWaypoint('A')"
 							data-toggle="tooltip" data-placement="left" title="Go to waypoint A">
 						</span>
 					</div>
+
+                        		<div class="col-xs-4" style="text-align:center">
+					
+					<span class="fa fa-camera fa-4x toggle gbutton" onclick="takePhoto()">
+					</span>
+					</div>
+
 				</div>
 				<div class="row top-pad">
-					<div class="col-xs-6" style="text-align:center">
+					<div class="col-xs-4" style="text-align:center">
 						<span class="fa fa-map-marker fa-4x toggle gbutton" id="arrowDown" onclick="setWaypoint('B')"
 							data-toggle="tooltip" data-placement="left" title="Set waypoint B">
 						</span>
 					</div>
-					<div class="col-xs-6" style="text-align:center">
+					<div class="col-xs-4" style="text-align:center">
 						<span class="fa fa-truck fa-4x toggle gbutton" onclick="goToWaypoint('B')"
 							data-toggle="tooltip" data-placement="left" title="Go to waypoint B">
 						</span>
 					</div>
+
+					<div class="col-xs-4" style="text-align:center">
+						<span class="fa fa-refresh fa-4x toggle gbutton" onclick="goToNextWaypoint()">
+						</span>
+					</div>
+
 				</div>
 				<!-- <div class="row top-pad">
 					<div class="col-xs-6" style="text-align:center">
@@ -215,13 +226,6 @@
 						</span>
 					</div>
 				</div> -->
-			</div>
-			<div class="col-xs-4" style="text-align:center">
-				<br><br>
-					<span class="fa fa-refresh fa-4x toggle gbutton" onclick="goToNextWaypoint()">
-					</span>
-			</div>
-		</div>
 	</div>
 
 
