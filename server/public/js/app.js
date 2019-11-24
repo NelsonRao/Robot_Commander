@@ -1227,6 +1227,8 @@ function setWaypoint(waypointName) {
 
 function takePhoto(){
 	addLog('Take photo');
+	photoURL=document.getElementById('photoURL').value;
+	console.log("photoURL: "+photoURL);
 	var request=new XMLHttpRequest();
 	request.onreadystatechange = function(){
 	}	      
@@ -1234,6 +1236,43 @@ function takePhoto(){
 	request.send(null);
 
 }
+function openCanD(){
+	addLog('Open Dry Can');
+	var url="http://bbb.local:8081/d";
+	
+	var request=new XMLHttpRequest();
+	request.onreadystatechange = function(){
+	}	      
+  	request.open("GET", url,true);
+	request.send(null);
+
+}
+
+function openCanW(){
+	addLog('Open Wet Can');
+	var url="http://bbb.local:8081/w";
+	
+	var request=new XMLHttpRequest();
+	request.onreadystatechange = function(){
+	}	      
+  	request.open("GET", url,true);
+	request.send(null);
+
+}
+
+function openCanR(){
+	addLog('Open Recycle Can');
+	var url="http://bbb.local:8081/r";
+	
+	var request=new XMLHttpRequest();
+	request.onreadystatechange = function(){
+	}	      
+  	request.open("GET", url,true);
+	request.send(null);
+
+}
+
+
 
 
 function SetWaypointZero(waypointName) {
